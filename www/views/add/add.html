@@ -1,0 +1,32 @@
+<ion-view view-title="Add payment">
+  <ion-content class="padding">
+    <h2>Add payment</h2>
+
+    <div class="list" >
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Who is paying?
+        </div>
+        <select
+          ng-model="model.selectedFriend"
+          ng-options="friend as friend.name for friend in friends">
+
+        </select>
+      </label>
+
+    </div>
+
+    <div class="list" ng-if="model.selectedFriend.id != friend.id" ng-repeat="friend in friends">
+      <label class="item item-input item-stacked-label">
+        <span class="input-label">{{ friend.name }}</span>
+        <input type="number" ng-model="friend.currentAmount" placeholder="0">
+      </label>
+    </div>
+
+    <div class="button button-positive button-block" ng-click="addPayment()">
+      Add payment
+    </div>
+
+  </ion-content>
+</ion-view>
